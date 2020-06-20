@@ -1,7 +1,6 @@
 #! /bin/bash
 scrpt_dir="/root/.scripts"
 crontab_weekly="/etc/cron.weekly"
-EMAIL="timokhovim@gmail.com"
 if [ ! -d "$scrpt_dir" ]
 then
 	mkdir $scrpt_dir
@@ -19,5 +18,3 @@ then
 fi
 chown root: $crontab_weekly/sysupdate
 chmod 744 $crontab_weekly/sysupdate
-# ln -sf $scrpt_dir/sysupdate.sh /bin/auto_sysupdate
-# crontab -l | { cat; echo "0 0 * * Mon /bin/auto_sysupdate"; } | crontab -
