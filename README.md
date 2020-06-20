@@ -2,10 +2,13 @@
 Automation system update for ubuntu
 ## installation
 ```
-git clone https://github.com/Mozzart88/auto_sysupdate.git && make -C auto_sysupdate
+git clone https://github.com/Mozzart88/auto_sysupdate.git && sudo make -C auto_sysupdate
 ```
+`sudo` used to add to cron
 
 ## Uninstall 
+In folder of repo
 ```
-make -C auto_sysupdate uninstall
+sudo make uninstall
 ```
+`sudo` used to remove from cron

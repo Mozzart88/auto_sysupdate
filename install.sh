@@ -1,14 +1,23 @@
 #! /bin/bash
-echo "Eneter email:"
 scrpt_dir="/root/.scripts"
+crontab_weekly="/etc/cron.weekly"
+EMAIL="timokhovim@gmail.com"
 if [ ! -d "$scrpt_dir" ]
 then
 	mkdir $scrpt_dir
 fi
-read -r EMAILs
+if [ -z $EMAIL ]
+then
+	echo "Eneter email:"
+	read -r EMAIL
+fi
 echo "EMAIL=$EMAIL" > $scrpt_dir/.au.conf
-mv sysupdate.sh $scrpt_dir
-chown root: $scrpt_dir/sysupdate.sh
-chmod 744 $scrpt_dir/sysupdate.sh
-ln -sf $scrpt_dir/sysupdate.sh /bin/auto_sysupdate
-crontab -l | { cat; echo "0 0 * * Mon /bin/auto_sysupdate"; } | crontab -
+mv sysupdate.sh $crontab_weekly/sysupdate
+if [ $? -ne 0 ]
+then
+	exit $?
+fi
+chown root: $crontab_weekly/sysupdate
+chmod 744 $crontab_weekly/sysupdate
+# ln -sf $scrpt_dir/sysupdate.sh /bin/auto_sysupdate
+# crontab -l | { cat; echo "0 0 * * Mon /bin/auto_sysupdate"; } | crontab -
