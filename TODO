@@ -1,0 +1,11 @@
+Auto update:
+	☐ Check for updates
+	☐ Install updates
+Mailing:
+	☐ Add command for reboot to mail
+	☐ Add update log
+Error handling:
+	☐ Dont send email with common warnings
+System update:
+	☐ refactor for `dkpg`
+
